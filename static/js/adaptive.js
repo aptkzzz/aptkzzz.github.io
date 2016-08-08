@@ -4,9 +4,9 @@ let setMyPhotoSize = () => {
 	let width = document.documentElement.clientWidth;
 
 	if (width < 768) {
-		size = width;
-	} else if (width >= 768 && width < 992) {
 		size = width / 12 * 8;
+	} else if (width >= 768 && width < 992) {
+		size = width / 2;
 	} else if (width >= 992 && width < 1200) {
 		size = width / 3;
 	} else if (width >= 1200) {
