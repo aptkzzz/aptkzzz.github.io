@@ -6,3 +6,7 @@ body {
 	width: 100%;
 	text-align: center;
 }
+
+#projectsRow > div {
+	border: 1px solid black;/*   AXAXAXAXAXAXAXAXA   */
+}

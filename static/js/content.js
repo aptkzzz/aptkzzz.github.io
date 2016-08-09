@@ -18,8 +18,8 @@ let pushProjectsList = (data) => {
 		let list = [];
 		list[0] = "<img class='img-rounded img-responsive' src='" + i.picture + "' />";
 		list[1] = "<h4>" + i.name + "</h4>";
-		list[2] = "<button class='btn btn-default' onclick='redirect(" + i.link + ")'>Подробнее</button>";
-		list[3] = "<button class='btn btn-default' onclick='redirect(" + i.github + ")'>GutHub</button>";
+		list[2] = "<button class='btn btn-default' onclick='redirect(\"http://arseniypetrikor.ru" + i.link + "\")'>Подробнее</button>";
+		list[3] = "<button class='btn btn-default' onclick='redirect(\"" + i.github + "\")'>GitHub</button>";
 		project.innerHTML = list[0] + list[1] + list[2] + list[3];
 		projectsRow.appendChild(project);
 	});
@@ -35,7 +35,7 @@ let pushTalkList = (data) => {
 		});
 		let list = [];
 		list[0] = "<img class='img-rounded img-responsive' src='" + i.picture + "' />";
-		list[1] = "<button class='btn btn-default' onclick='redirect(" + i.link + ")'>" + i.name + "</button>";
+		list[1] = "<button class='btn btn-default' onclick='redirect(\"" + i.link + "\")'>" + i.name + "</button>";
 		talk.innerHTML = list[0] + list[1];
 		talkRow.appendChild(talk);
 	});
@@ -51,7 +51,7 @@ let pushWorkList = (data) => {
 		});
 		let list = [];
 		list[0] = "<img class='img-rounded img-responsive' src='" + i.picture + "' />";
-		list[1] = "<button class='btn btn-default' onclick='redirect(" + i.link + ")'>" + i.name + "</button>";
+		list[1] = "<button class='btn btn-default' onclick='redirect(\"" + i.link + "\")'>" + i.name + "</button>";
 		work.innerHTML = list[0] + list[1];
 		workRow.appendChild(work);
 	});
