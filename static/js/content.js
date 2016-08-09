@@ -1,23 +1,94 @@
 let classes = ["col-xs-6", "col-sm-6", "col-md-3", "col-lg-2"];
+let data_p = [];
+let data_t = [];
+let data_w = [];
 
-let getList = (file, callback) => {
+let getList = (file, callback, variable) => {
 	$.get("http://80.78.241.238:8192/json/" + file, {}, function (response) {
-		let data = JSON.parse(response);
-		callback(data);
+		variable = JSON.parse(response);
+		callback();
 	});
 }
 
-let projectsAllocation = () => {
-	allocDict = {};
-	alloc
+let getAlloc_lg = (projects) => {
+	let p_count = projects.length;
+	let p_full_rows = Math.floor(p_count / 6);
+	let p_full_count = p_full_rows * 6;
+	let p_not_full_count = p_count - p_full_count;
+	let i = 0;
+	let to_r = {"to_full": [], "to_not_full": [], "offset": 0};
+	while (i < p_count) {
+		if (i < p_full_count) {
+			to_r.to_full.push(projects[i]);
+		} else {
+			to_r.to_not_full.push(projects[i]);
+		}
+	}
+	if (p_not_full_count != 0 && p_not_full_count != 6) {
+		to_r.offset = 6 - p_not_full_count;
+	}
+	return to_r;
 }
 
-let pushProjectsList = (data) => {
-	let projectsRow = document.getElementById('projects');
-	/*let projectsRowNF = document.getElementById('projects-not-full');
-	let alloc = projectsAllocation(data);*/
+let getAlloc_sm_xs = (projects) => {
+	let p_count = projects.length;
+	let p_full_rows = Math.floor(p_count / 2);
+	let p_full_count = p_full_rows * 2;
+	let p_not_full_count = p_count - p_full_count;
+	let i = 0;
+	let to_r = {"to_full": [], "to_not_full": [], "offset": 0};
+	while (i < p_count) {
+		if (i < p_full_count) {
+			to_r.to_full.push(projects[i]);
+		} else {
+			to_r.to_not_full.push(projects[i]);
+		}
+	}
+	if (p_not_full_count != 0 && p_not_full_count != 2) {
+		to_r.offset = 2 - p_not_full_count;
+	}
+	return to_r;
+}
 
-	data./*alloc.toFullRow*/.forEach(function (i, index, array) {
+let getAlloc_md = (projects) => {
+	let p_count = projects.length;
+	let p_full_rows = Math.floor(p_count / 4);
+	let p_full_count = p_full_rows * 4;
+	let p_not_full_count = p_count - p_full_count;
+	let i = 0;
+	let to_r = {"to_full": [], "to_not_full": [], "offset": 0};
+	while (i < p_count) {
+		if (i < p_full_count) {
+			to_r.to_full.push(projects[i]);
+		} else {
+			to_r.to_not_full.push(projects[i]);
+		}
+	}
+	if (p_not_full_count != 0 && p_not_full_count != 4) {
+		to_r.offset = 4 - p_not_full_count;
+	}
+	return to_r;
+}
+
+let getAlloc = (projects) => {
+	let deviceType = getDeviceType();
+	let response = {};
+	if (deviceType == "lg") {
+		response = getAlloc_lg(projects);
+	} else if (deviceType == "md") {
+		response = getAlloc_md(projects);
+	} else {
+		response = getAlloc_sm_xs(projects);
+	}
+	return response
+}
+
+let pushProjectsList = () => {
+	let projectsRow = document.getElementById('projects');
+	let projectsRowNF = document.getElementById('projects-not-full');
+	let alloc = getAlloc(data);
+
+	data_p.forEach(function (i, index, array) {
 		let project = document.createElement("div");
 		classes.forEach(function (classname, classindex, classarray) {
 			project.classList.add(classname);
@@ -30,21 +101,12 @@ let pushProjectsList = (data) => {
 		project.innerHTML = list[0] + list[1] + list[2] + list[3];
 		projectsRow.appendChild(project);
 	});
-	/*alloc.toNotFullRow.forEach(function (i, index, array) {
-		let project = document.createElement("div");
-		classes.forEach(function (classname, classindex, classarray) {
-			project.classList.add(classname);
-		});
-		if (index == 0) {
-			project.classList.add()
-		}
-	});*/
 };
 
-let pushTalkList = (data) => {
+let pushTalkList = () => {
 	let talkRow = document.getElementById('talk');
 
-	data.forEach(function (i, index, array) {
+	data_t.forEach(function (i, index, array) {
 		let talk = document.createElement("div");
 		classes.forEach(function (classname, classindex, classarray) {
 			talk.classList.add(classname);
@@ -60,10 +122,10 @@ let pushTalkList = (data) => {
 	});
 };
 
-let pushWorkList = (data) => {
+let pushWorkList = () => {
 	let workRow = document.getElementById('work');
 
-	data.forEach(function (i, index, array) {
+	data_w.forEach(function (i, index, array) {
 		let work = document.createElement("div");
 		classes.forEach(function (classname, classindex, classarray) {
 			work.classList.add(classname);
@@ -82,7 +144,7 @@ let pushWorkList = (data) => {
 
 
 let getContent = () => {
-	getList("projects.json", pushProjectsList);
-	getList("talk.json", pushTalkList);
-	getList("work.json", pushWorkList);
+	getList("projects.json", pushProjectsList, data_p);
+	getList("talk.json", pushTalkList, data_t);
+	getList("work.json", pushWorkList, data_w);
 }
