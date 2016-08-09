@@ -15,3 +15,4 @@ let setMyPhotoSize = () => {
 
 	photo.style.width = size.toString() + "px";
 }
+
