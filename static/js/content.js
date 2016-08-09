@@ -33,7 +33,7 @@ let pushProjectsList = (data) => {
 		list[0] = "<img class='img-rounded img-responsive' src='" + i.picture + "' />";
 		list[1] = "<h4>" + i.name + "</h4>";
 		list[2] = "<button class='btn btn-default' onclick='redirect(" + i.link + ")'>Подробнее</button>";
-		list[3] = "<button class='btn btn-default' onclick='redirect(" + i.github + ")'GutHub</button>";
+		list[3] = "<button class='btn btn-default' onclick='redirect(" + i.github + ")'>GutHub</button>";
 		project.innerHTML = list[0] + list[1] + list[2] + list[3];
 		projectsRow.appendChild(project);
 	});
