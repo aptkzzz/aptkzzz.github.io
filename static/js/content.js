@@ -1,28 +1,14 @@
-let getProjectsList = () => {
-	$.get("http://80.78.241.238:8192/json/projects.json", {}, function (response) {
-		let data = JSON.parse(response);
-		pushProjectsList(data);
-	});
-};
+let classes = ["col-xs-12", "col-sm-6", "col-md-3", "col-lg-2"];
 
-let getTalkList = () => {
-	$.get("http://80.78.241.238:8192/json/talk.json", {}, function (response) {
+let getList = (file, callback) => {
+	$.get("http://80.78.241.238:8192/json/" + file, {}, function (response) {
 		let data = JSON.parse(response);
-		pushTalkList(data);
+		callback(data);
 	});
-};
-
-let getWorkList = () => {
-	$.get("http://80.78.241.238:8192/json/work.json", {}, function (response) {
-		let data = JSON.parse(response);
-		pushWorkList(data);
-	});
-};
-
+}
 
 let pushProjectsList = (data) => {
 	let projectsRow = document.getElementById('projects');
-	let classes = ["col-xs-12", "col-sm-6", "col-md-3", "col-lg-1"];
 
 	data.forEach(function (i, index, array) {
 		let project = document.createElement("div");
@@ -41,7 +27,6 @@ let pushProjectsList = (data) => {
 
 let pushTalkList = (data) => {
 	let talkRow = document.getElementById('talk');
-	let classes = ["col-xs-12", "col-sm-6", "col-md-3", "col-lg-1"];
 
 	data.forEach(function (i, index, array) {
 		let talk = document.createElement("div");
@@ -58,7 +43,6 @@ let pushTalkList = (data) => {
 
 let pushWorkList = (data) => {
 	let workRow = document.getElementById('work');
-	let classes = ["col-xs-12", "col-sm-6", "col-md-3", "col-lg-1"];
 
 	data.forEach(function (i, index, array) {
 		let work = document.createElement("div");
@@ -75,7 +59,7 @@ let pushWorkList = (data) => {
 
 
 let getContent = () => {
-	getProjectsList();
-	getTalkList();
-	getWorkList();
+	getList("projects.json", pushProjectsList);
+	getList("talk.json", pushTalkList);
+	getList("work.json", pushWorkList);
 }
