@@ -7,12 +7,19 @@ let getList = (file, callback) => {
 	});
 }
 
+let projectsAllocation = () => {
+	allocDict = {};
+	alloc
+}
+
 let pushProjectsList = (data) => {
 	let projectsRow = document.getElementById('projects');
+	/*let projectsRowNF = document.getElementById('projects-not-full');
+	let alloc = projectsAllocation(data);*/
 
-	data.forEach(function (i, index, array) {
+	data./*alloc.toFullRow*/.forEach(function (i, index, array) {
 		let project = document.createElement("div");
-		classes.forEach(function (classname, classindex, classes) {
+		classes.forEach(function (classname, classindex, classarray) {
 			project.classList.add(classname);
 		});
 		let list = [];
@@ -23,6 +30,15 @@ let pushProjectsList = (data) => {
 		project.innerHTML = list[0] + list[1] + list[2] + list[3];
 		projectsRow.appendChild(project);
 	});
+	/*alloc.toNotFullRow.forEach(function (i, index, array) {
+		let project = document.createElement("div");
+		classes.forEach(function (classname, classindex, classarray) {
+			project.classList.add(classname);
+		});
+		if (index == 0) {
+			project.classList.add()
+		}
+	});*/
 };
 
 let pushTalkList = (data) => {
