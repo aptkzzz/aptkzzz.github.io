@@ -1,4 +1,4 @@
-let classes = ["col-xs-12", "col-sm-6", "col-md-3", "col-lg-2"];
+let classes = ["col-xs-6", "col-sm-6", "col-md-3", "col-lg-2"];
 
 let getList = (file, callback) => {
 	$.get("http://80.78.241.238:8192/json/" + file, {}, function (response) {
@@ -33,6 +33,9 @@ let pushTalkList = (data) => {
 		classes.forEach(function (classname, classindex, classarray) {
 			talk.classList.add(classname);
 		});
+		if (index == 0) {
+			talk.classList.add("col-lg-offset-2");
+		}
 		let list = [];
 		list[0] = "<img class='img-rounded img-responsive' src='" + i.picture + "' />";
 		list[1] = "<button class='btn btn-default' onclick='redirect(\"" + i.link + "\")'>" + i.name + "</button>";
@@ -49,6 +52,10 @@ let pushWorkList = (data) => {
 		classes.forEach(function (classname, classindex, classarray) {
 			work.classList.add(classname);
 		});
+		if (index == 0) {
+			work.classList.add("col-md-offset-3");
+			work.classList.add("col-lg-offset-4");
+		}
 		let list = [];
 		list[0] = "<img class='img-rounded img-responsive' src='" + i.picture + "' />";
 		list[1] = "<button class='btn btn-default' onclick='redirect(\"" + i.link + "\")'>" + i.name + "</button>";

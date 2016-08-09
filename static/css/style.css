@@ -7,6 +7,10 @@ body {
 	text-align: center;
 }
 
-#projectsRow > div {
-	border: 1px solid black;/*   AXAXAXAXAXAXAXAXA   */
+#projects div, #talk div, #work div {
+	text-align: center;
+}
+
+.center {
+	text-align: center;
 }
