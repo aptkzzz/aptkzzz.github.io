@@ -5,7 +5,7 @@ let data_w = [];
 
 let getList = (file, callback, variable) => {
 	$.get("http://80.78.241.238:8192/json/" + file, {}, function (response) {
-		eval(variable) = JSON.parse(response);
+		eval(variable + " = JSON.parse(response)");
 		callback();
 	});
 }
