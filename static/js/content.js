@@ -86,9 +86,9 @@ let getAlloc = (projects) => {
 let pushProjectsList = () => {
 	let projectsRow = document.getElementById('projects');
 	let projectsRowNF = document.getElementById('projects-not-full');
-	let alloc = getAlloc(data);
+	let alloc = getAlloc(data_p);
 
-	data_p.forEach(function (i, index, array) {
+	alloc.to_full.forEach(function (i, index, array) {
 		let project = document.createElement("div");
 		classes.forEach(function (classname, classindex, classarray) {
 			project.classList.add(classname);
@@ -100,6 +100,23 @@ let pushProjectsList = () => {
 		list[3] = "<button class='btn btn-default' onclick='redirect(\"" + i.github + "\")'>GitHub</button>";
 		project.innerHTML = list[0] + list[1] + list[2] + list[3];
 		projectsRow.appendChild(project);
+	});
+	alloc.to_not_full.forEach(function (i, index, array) {
+		let project = document.createElement("div");
+		classes.forEach(function (classname, classindex, classarray) {
+			project.classList.add(classname);
+		});
+		if (index == 0) {
+			let offset_classes = [
+				"col-xs-offset-" + alloc.offset,
+				"col-sm-offset-" + alloc.offset,
+				"col-md-offset-" + alloc.offset,
+				"col-lg-offset-" + alloc.offset
+			]
+			offset_classes.forEach(function (classname, classindex, classarray) {
+				project.classList.add(classname);
+			});
+		}
 	});
 };
 
