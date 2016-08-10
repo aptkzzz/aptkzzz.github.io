@@ -1,7 +1,7 @@
 let executeOnce = () => {
 	getContent();
 	getNavigationData();
-	setAnimation();
+	setDarkTheme();
 }
 
 let executeDouble = () => {}
