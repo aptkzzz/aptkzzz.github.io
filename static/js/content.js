@@ -64,10 +64,6 @@ let pushProjectsList = () => {
 		list[2] = "<button class='btn btn-default' onclick='redirect(\"http://arseniypetrikor.ru" + i.link + "\")'>Подробнее</button>";
 		list[3] = "<button class='btn btn-default' onclick='redirect(\"" + i.github + "\")'>GitHub</button>";
 		project.innerHTML = list[0] + list[1] + list[2] + list[3];
-		console.log(alloc.start.lg, alloc.offset.lg);
-		console.log(alloc.start.md, alloc.offset.md);
-		console.log(alloc.start.sm, alloc.offset.sm);
-		console.log(alloc.start.xs, alloc.offset.xs);
 		if (index == alloc.start.lg) {
 			project.classList.add("col-lg-offset-" + alloc.offset.lg);
 		} if (index == alloc.start.md) {
