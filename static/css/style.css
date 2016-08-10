@@ -1,6 +1,8 @@
 body {
 	padding-top: 70px;
 	background-image: url("http://80.78.241.238:8192/img/bg/light.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
 }
 
 .btn {
