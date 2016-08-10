@@ -1,94 +1,59 @@
-let classes = ["col-xs-6", "col-sm-6", "col-md-3", "col-lg-2"];
-let data_p = [];
-let data_t = [];
-let data_w = [];
+let classes = ["col-xs-6", "col-sm-4", "col-md-2", "col-lg-2"];
+let data = {
+	"p": [],
+	"t": [],
+	"w": []
+}
 
 let getList = (file, callback, variable) => {
 	$.get("http://80.78.241.238:8192/json/" + file, {}, function (response) {
-		eval(variable + " = JSON.parse(response)");
+		data[variable] = JSON.parse(response);
 		callback();
 	});
 }
 
-let getAlloc_lg = (projects) => {
-	let p_count = projects.length;
-	let p_full_rows = Math.floor(p_count / 6);
-	let p_full_count = p_full_rows * 6;
-	let p_not_full_count = p_count - p_full_count;
-	let i = 0;
-	let to_r = {"to_full": [], "to_not_full": [], "offset": 0};
-	while (i < p_count) {
-		if (i < p_full_count) {
-			to_r.to_full.push(projects[i]);
-		} else {
-			to_r.to_not_full.push(projects[i]);
-		}
-	}
-	if (p_not_full_count != 0 && p_not_full_count != 6) {
-		to_r.offset = 6 - p_not_full_count;
-	}
-	return to_r;
-}
-
-let getAlloc_sm_xs = (projects) => {
-	let p_count = projects.length;
-	let p_full_rows = Math.floor(p_count / 2);
-	let p_full_count = p_full_rows * 2;
-	let p_not_full_count = p_count - p_full_count;
-	let i = 0;
-	let to_r = {"to_full": [], "to_not_full": [], "offset": 0};
-	while (i < p_count) {
-		if (i < p_full_count) {
-			to_r.to_full.push(projects[i]);
-		} else {
-			to_r.to_not_full.push(projects[i]);
-		}
-	}
-	if (p_not_full_count != 0 && p_not_full_count != 2) {
-		to_r.offset = 2 - p_not_full_count;
-	}
-	return to_r;
-}
-
-let getAlloc_md = (projects) => {
-	let p_count = projects.length;
-	let p_full_rows = Math.floor(p_count / 4);
-	let p_full_count = p_full_rows * 4;
-	let p_not_full_count = p_count - p_full_count;
-	let i = 0;
-	let to_r = {"to_full": [], "to_not_full": [], "offset": 0};
-	while (i < p_count) {
-		if (i < p_full_count) {
-			to_r.to_full.push(projects[i]);
-		} else {
-			to_r.to_not_full.push(projects[i]);
-		}
-	}
-	if (p_not_full_count != 0 && p_not_full_count != 4) {
-		to_r.offset = 4 - p_not_full_count;
-	}
-	return to_r;
-}
-
 let getAlloc = (projects) => {
-	let deviceType = getDeviceType();
-	let response = {};
-	if (deviceType == "lg") {
-		response = getAlloc_lg(projects);
-	} else if (deviceType == "md") {
-		response = getAlloc_md(projects);
-	} else {
-		response = getAlloc_sm_xs(projects);
+	let count = projects.length;
+	let fullCount = {
+		"lg": Math.floor(count / 6) * 6,
+		"md": Math.floor(count / 6) * 6,
+		"sm": Math.floor(count / 3) * 3,
+		"xs": Math.floor(count / 2) * 2
+	};
+	let notFullCount = {
+		"lg": count - fullCount.lg,
+		"md": count - fullCount.md,
+		"sm": count - fullCount.sm,
+		"xs": count - fullCount.xs
+	};
+	let offset = {
+		"lg": 0,
+		"md": 0,
+		"sm": 0,
+		"xs": 0
+	};
+	if (notFullCount.lg != 0 && notFullCount.lg != 6) {
+		offset.lg = Math.floor((12 - (notFullCount.lg * 2)) / 2);
+	} if (notFullCount.md != 0 && notFullCount.md != 4) {
+		offset.md = Math.floor((12 - (notFullCount.md * 2)) / 2);
+	} if (notFullCount.sm != 0 && notFullCount.sm != 3) {
+		offset.sm = Math.floor((12 - (notFullCount.sm * 4)) / 2);
+	} if (notFullCount.xs != 0 && notFullCount.xs != 2) {
+		offset.xs = Math.floor((12 - (notFullCount.xs * 6)) / 2);
 	}
-	return response
+	to_r = {
+		"start": fullCount,
+		"offset": offset
+	};
+	return to_r;
 }
 
 let pushProjectsList = () => {
 	let projectsRow = document.getElementById('projects');
 	let projectsRowNF = document.getElementById('projects-not-full');
-	let alloc = getAlloc(data_p);
+	let alloc = getAlloc(data.p);
 
-	alloc.to_full.forEach(function (i, index, array) {
+	data.p.forEach(function (i, index, array) {
 		let project = document.createElement("div");
 		classes.forEach(function (classname, classindex, classarray) {
 			project.classList.add(classname);
@@ -99,37 +64,39 @@ let pushProjectsList = () => {
 		list[2] = "<button class='btn btn-default' onclick='redirect(\"http://arseniypetrikor.ru" + i.link + "\")'>Подробнее</button>";
 		list[3] = "<button class='btn btn-default' onclick='redirect(\"" + i.github + "\")'>GitHub</button>";
 		project.innerHTML = list[0] + list[1] + list[2] + list[3];
-		projectsRow.appendChild(project);
-	});
-	alloc.to_not_full.forEach(function (i, index, array) {
-		let project = document.createElement("div");
-		classes.forEach(function (classname, classindex, classarray) {
-			project.classList.add(classname);
-		});
-		if (index == 0) {
-			let offset_classes = [
-				"col-xs-offset-" + alloc.offset,
-				"col-sm-offset-" + alloc.offset,
-				"col-md-offset-" + alloc.offset,
-				"col-lg-offset-" + alloc.offset
-			]
-			offset_classes.forEach(function (classname, classindex, classarray) {
-				project.classList.add(classname);
-			});
+		console.log(alloc.start.lg, alloc.offset.lg);
+		console.log(alloc.start.md, alloc.offset.md);
+		console.log(alloc.start.sm, alloc.offset.sm);
+		console.log(alloc.start.xs, alloc.offset.xs);
+		if (index == alloc.start.lg) {
+			project.classList.add("col-lg-offset-" + alloc.offset.lg);
+		} if (index == alloc.start.md) {
+			project.classList.add("col-md-offset-" + alloc.offset.md);
+		} if (index == alloc.start.sm) {
+			project.classList.add("col-sm-offset-" + alloc.offset.sm);
+		} if (index == alloc.start.xs) {
+			project.classList.add("col-xs-offset-" + alloc.offset.xs);
 		}
+		projectsRow.appendChild(project);
 	});
 };
 
 let pushTalkList = () => {
 	let talkRow = document.getElementById('talk');
 
-	data_t.forEach(function (i, index, array) {
+	data.t.forEach(function (i, index, array) {
 		let talk = document.createElement("div");
 		classes.forEach(function (classname, classindex, classarray) {
 			talk.classList.add(classname);
 		});
 		if (index == 0) {
 			talk.classList.add("col-lg-offset-2");
+			talk.classList.add("col-md-offset-2");
+		} else if (index == array.length - 1/* && getDeviceType() == "sm"*/) {
+			talk.classList.add("col-xs-offset-0");
+			talk.classList.add("col-sm-offset-4");
+			talk.classList.add("col-md-offset-0");
+			talk.classList.add("col-lg-offset-0");
 		}
 		let list = [];
 		list[0] = "<img class='img-rounded img-responsive' src='" + i.picture + "' />";
@@ -142,14 +109,15 @@ let pushTalkList = () => {
 let pushWorkList = () => {
 	let workRow = document.getElementById('work');
 
-	data_w.forEach(function (i, index, array) {
+	data.w.forEach(function (i, index, array) {
 		let work = document.createElement("div");
 		classes.forEach(function (classname, classindex, classarray) {
 			work.classList.add(classname);
 		});
 		if (index == 0) {
-			work.classList.add("col-md-offset-3");
+			work.classList.add("col-md-offset-4");
 			work.classList.add("col-lg-offset-4");
+			work.classList.add("col-sm-offset-2");
 		}
 		let list = [];
 		list[0] = "<img class='img-rounded img-responsive' src='" + i.picture + "' />";
@@ -161,7 +129,7 @@ let pushWorkList = () => {
 
 
 let getContent = () => {
-	getList("projects.json", pushProjectsList, "data_p");
-	getList("talk.json", pushTalkList, "data_t");
-	getList("work.json", pushWorkList, "data_w");
+	getList("projects.json", pushProjectsList, "p");
+	getList("talk.json", pushTalkList, "t");
+	getList("work.json", pushWorkList, "w");
 }

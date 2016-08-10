@@ -1,13 +1,16 @@
-let execute = () => {
-	pushProjectsList();
-}
-
 let executeOnce = () => {
 	getContent();
 	getNavigationData();
 }
 
+let executeDouble = () => {}
+
+let execute = () => {}
+
 window.addEventListener("load", executeOnce);
+
+window.addEventListener("resize", executeDouble);
+window.addEventListener("orientationchange", executeDouble);
 
 window.addEventListener("load", execute);
 window.addEventListener("resize", execute);
