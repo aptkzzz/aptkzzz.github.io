@@ -1,6 +1,7 @@
 let executeOnce = () => {
 	getContent();
 	getNavigationData();
+	setAnimation();
 }
 
 let executeDouble = () => {}

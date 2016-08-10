@@ -17,6 +17,8 @@ body {
 
 .clickable {
 	opacity: 1;
+	transition-property: opacity;
+	transition-duration: 0.25s;
 }
 
 .clickable:hover {
