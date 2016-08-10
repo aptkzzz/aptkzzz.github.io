@@ -14,3 +14,11 @@ body {
 .center {
 	text-align: center;
 }
+
+.clickable {
+	opacity: 1;
+}
+
+.clickable:hover {
+	opacity: 0.8;
+}

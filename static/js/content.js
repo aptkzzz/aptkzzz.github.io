@@ -95,7 +95,7 @@ let pushTalkList = () => {
 			talk.classList.add("col-lg-offset-0");
 		}
 		let list = [];
-		list[0] = "<img class='img-rounded img-responsive' src='" + i.picture + "' onclick='redirect(\"" + i.link + "\")'/>";
+		list[0] = "<img class='img-rounded img-responsive clickable' src='" + i.picture + "' onclick='redirect(\"" + i.link + "\")'/>";
 		// list[1] = "<button class='btn btn-default' onclick='redirect(\"" + i.link + "\")'>" + i.name + "</button>";
 		talk.innerHTML = list[0]/* + list[1];*/
 		talkRow.appendChild(talk);
@@ -116,7 +116,7 @@ let pushWorkList = () => {
 			work.classList.add("col-sm-offset-2");
 		}
 		let list = [];
-		list[0] = "<img class='img-rounded img-responsive' src='" + i.picture + "' onclick='redirect(\"" + i.link + "\")' />";
+		list[0] = "<img class='img-rounded img-responsive clickable' src='" + i.picture + "' onclick='redirect(\"" + i.link + "\")' />";
 		// list[1] = "<button class='btn btn-default' onclick='redirect(\"" + i.link + "\")'>" + i.name + "</button>";
 		work.innerHTML = list[0]/* + list[1];*/
 		workRow.appendChild(work);
