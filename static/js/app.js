@@ -183,8 +183,9 @@ function acceptStyles() {
 	for (var i = 0; i < styles.length; i++) {
 		styles[i].media = 'all';
 	}
-	window.removeEventListener('load', acceptStyles);
 }
+
+acceptStyles();
 
 window.addEventListener('load', function __pushContentOnLoad() {
 	setVisible('projects');
@@ -192,7 +193,6 @@ window.addEventListener('load', function __pushContentOnLoad() {
 	setVisible('work');
 	window.removeEventListener('load', __pushContentOnLoad);
 });
-window.addEventListener('load', acceptStyles);
 window.addEventListener('load', setPhoto);
 window.addEventListener('load', setTheme);
 menudiv.addEventListener('click', toggleMenu);
