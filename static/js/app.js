@@ -69,23 +69,6 @@ function getDeviceData() {
 	return result;
 }
 
-function setVisible() {
-	if (data.projects.length === 0) {
-		divs.projects.style.display = 'none';
-		menu.projects.style.display = 'none';
-		menutabs -= 1;
-	} if (data.talk.length === 0) {
-		divs.talk.style.display = 'none';
-		menu.talk.style.display = 'none';
-		menutabs -= 1;
-	} if (data.work.length === 0) {
-		divs.work.style.display = 'none';
-		menu.work.style.display = 'none';
-		menutabs -= 1;
-	}
-	window.removeEventListener('load', setVisible);
-}
-
 function setPhoto() {
 	var random = Math.random();
 	var index = Math.round(random);
@@ -145,7 +128,52 @@ function getAllocation(list) {
 	return result;
 }
 
+function loadContent(modificator) {
+	var dataN = data[modificator];
+	var div = divs[modificator];
+	var deviceType = getDeviceData().type;
+	var alloc = getAllocation(dataN)[deviceType];
+	alloc.forEach(function (row, rowIndex) {
+		var rowElem = document.createElement('div');
+		rowElem.classList.add('row');
+		row.forEach(function (i) {
+			var iconElement = document.createElement('img');
+			iconElement.classList.add('icondiv');
+			iconElement.src = dataN[i].photo;
+			iconElement.onclick = () => { window.open(dataN[i].link); };
+			rowElem.appendChild(iconElement);
+		});
+		div.appendChild(rowElem);
+	});
+}
 
+function setVisible() {
+	if (data.projects.length === 0) {
+		divs.projects.style.display = 'none';
+		menu.projects.style.display = 'none';
+		menutabs -= 1;
+	} else {
+		loadContent('projects');
+	}
+
+	if (data.talk.length === 0) {
+		divs.talk.style.display = 'none';
+		menu.talk.style.display = 'none';
+		menutabs -= 1;
+	} else {
+		loadContent('talk');
+	}
+
+	if (data.work.length === 0) {
+		divs.work.style.display = 'none';
+		menu.work.style.display = 'none';
+		menutabs -= 1;
+	} else {
+		loadContent('work');
+	}
+
+	window.removeEventListener('load', setVisible);
+}
 
 window.addEventListener('load', setVisible);
 window.addEventListener('load', setPhoto);
