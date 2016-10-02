@@ -178,15 +178,6 @@ function setVisible(modificator) {
 	}
 }
 
-function acceptStyles() {
-	var styles = document.getElementsByTagName('link');
-	for (var i = 0; i < styles.length; i++) {
-		styles[i].media = 'all';
-	}
-}
-
-acceptStyles();
-
 window.addEventListener('load', function __pushContentOnLoad() {
 	setVisible('projects');
 	setVisible('talk');
