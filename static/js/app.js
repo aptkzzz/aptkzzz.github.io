@@ -147,6 +147,18 @@ function loadContent(modificator) {
 	});
 }
 
+function setTheme() {
+	var date = new Date();
+	if (date.getHours() >= 22 || date.getHours() <= 6) {
+		document.body.style.color = '#fff';
+		document.body.style.backgroundColor = '#000';
+	} else {
+		document.body.style.color = '#000';
+		document.body.style.backgroundColor = '#fff';
+	}
+	window.removeEventListener('load', setTheme);
+}
+
 function setVisible() {
 	if (data.projects.length === 0) {
 		divs.projects.style.display = 'none';
@@ -177,4 +189,5 @@ function setVisible() {
 
 window.addEventListener('load', setVisible);
 window.addEventListener('load', setPhoto);
+window.addEventListener('load', setTheme);
 menudiv.addEventListener('click', toggleMenu);

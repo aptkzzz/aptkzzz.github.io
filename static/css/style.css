@@ -77,6 +77,13 @@ img.icondiv {
 	width: 128px;
 	margin: 15px;
 	display: inline-block;
+	vertical-align: middle;
+	transition-property: width;
+	transition-duration: 0.5s;
+}
+
+img.icondiv:hover {
+	width: 160px;
 }
 
 .gh {
