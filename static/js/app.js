@@ -180,9 +180,9 @@ function setVisible(modificator) {
 
 function acceptStyles() {
 	var styles = document.getElementsByTagName('link');
-	styles.forEach(function (style) {
-		style.media = 'all';
-	});
+	for (var i = 0; i < styles.length; i++) {
+		styles[i].media = 'all';
+	}
 	window.removeEventListener('load', acceptStyles);
 }
 
