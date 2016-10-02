@@ -1,5 +1,9 @@
 'use strict';
 
+var colors = [
+	
+]
+
 var data = {};
 data.projects = [];
 data.talk = [
@@ -45,11 +49,12 @@ var photos = ['./static/images/myphoto1.jpg', './static/images/myphoto2.jpg'];
 var menutabs = 4;
 var menudiv = document.getElementById('menu');
 var bodystyle = document.body.style;
+var docelem = document.documentElement;
 
 function getWindowSize() {
 	var result = {};
-	result.height = document.documentElement.clientHeight;
-	result.width = document.documentElement.clientWidth;
+	result.height = docelem.clientHeight;
+	result.width = docelem.clientWidth;
 	return result;
 }
 
@@ -173,12 +178,21 @@ function setVisible(modificator) {
 	}
 }
 
+function acceptStyles() {
+	var styles = document.getElementsByTagName('link');
+	styles.forEach(function (style) {
+		style.media = 'all';
+	});
+	window.removeEventListener('load', acceptStyles);
+}
+
 window.addEventListener('load', function __pushContentOnLoad() {
 	setVisible('projects');
 	setVisible('talk');
 	setVisible('work');
 	window.removeEventListener('load', __pushContentOnLoad);
 });
+window.addEventListener('load', acceptStyles);
 window.addEventListener('load', setPhoto);
 window.addEventListener('load', setTheme);
 menudiv.addEventListener('click', toggleMenu);
