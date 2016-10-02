@@ -52,6 +52,14 @@ function getWindowSize() {
 	return result;
 }
 
+function isFilled(modificator) {
+	if (data[modificator].length === 0) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
 function getDeviceData() {
 	var result = {};
 	var windowSize = getWindowSize();
@@ -81,52 +89,39 @@ function toggleMenu() {
 	if (data.type === 'mobile') {
 		if (menudiv.offsetHeight < 60) {
 			menudiv.style.height = String(menutabs * 50) + 'px';
+			if (isFilled('projects')) {
+				menu.projects.style.display = 'block';
+			} if (isFilled('talk')) {
+				menu.talk.style.display = 'block';
+			} if (isFilled('work')) {
+				menu.work.style.display = 'block';
+			}
 		} else {
 			menudiv.style.height = '50px';
 			menu.projects.style.display = 'hidden';
-			menu.talk.display = 'hidden';
-			menu.work.display = 'hidden';
+			menu.talk.style.display = 'hidden';
+			menu.work.style.display = 'hidden';
 		}
 	} else {
 		menudiv.removeEventListener('click', toggleMenu);
 	}
 }
 
-function getAllocation(list) {
+function getAllocation(list, max) {
 	var length = list.length;
-	var result = {
-		desktop: [],
-		mobile: []
-	};
-	var fullDesktop = Math.floor(length / 4);
-	var notFullDesktop = length - fullDesktop * 4;
-	var fullMobile = Math.floor(length / 2);
-	var notFullMobile = length - fullMobile * 2;
-	for(var i = 0; i <= fullDesktop; i++) {
-		if(i < fullDesktop) {
-			result.desktop.push([]);
-			result.desktop[i].push(i * 4);
-			result.desktop[i].push(i * 4 + 1);
-			result.desktop[i].push(i * 4 + 2);
-			result.desktop[i].push(i * 4 + 3);
+	var result = [];
+	var full = Math.floor(length / max);
+	var notFull = length - full * max;
+	for(var i = 0; i <= full; i++) {
+		result.push([]);
+		if (i === full) {
+			var maximum = notFull;
 		} else {
-			result.desktop.push([]);
-			if(notFullDesktop > 0) {
-				result.desktop[i].push(i * 4);
-			} if(notFullDesktop > 1) {
-				result.desktop[i].push(i * 4 + 1);
-			} if(notFullDesktop > 2) {
-				result.desktop[i].push(i * 4 + 2);
-			}
+			var maximum = max;
 		}
-	}
-	for(var i = 0; i < fullMobile; i++) {
-		result.mobile.push([]);
-		result.mobile[i].push(i * 2);
-		result.mobile[i].push(i * 2 + 1);
-	}
-	if(notFullMobile === 1) {
-		result.mobile.push([length - 1, ]);
+		for(var j = 0; j < maximum; j++) {
+			result[i].push(i * max + j);
+		}
 	}
 	return result;
 }
@@ -135,7 +130,12 @@ function loadContent(modificator) {
 	var dataN = data[modificator];
 	var div = divs[modificator];
 	var deviceType = getDeviceData().type;
-	var alloc = getAllocation(dataN)[deviceType];
+	if (deviceType === 'mobile') {
+		var max = 2;
+	} else {
+		var max = 4;
+	}
+	var alloc = getAllocation(dataN, max);
 	alloc.forEach(function (row, rowIndex) {
 		var rowElem = document.createElement('div');
 		rowElem.classList.add('row');
@@ -162,35 +162,22 @@ function setTheme() {
 	window.removeEventListener('load', setTheme);
 }
 
-function setVisible() {
-	if (data.projects.length === 0) {
+function setVisible(modificator) {
+	if (!isFilled(modificator)) {
 		divs.projects.style.display = 'none';
 		menu.projects.style.display = 'none';
 		menutabs -= 1;
 	} else {
-		loadContent('projects');
+		loadContent(modificator);
 	}
-
-	if (data.talk.length === 0) {
-		divs.talk.style.display = 'none';
-		menu.talk.style.display = 'none';
-		menutabs -= 1;
-	} else {
-		loadContent('talk');
-	}
-
-	if (data.work.length === 0) {
-		divs.work.style.display = 'none';
-		menu.work.style.display = 'none';
-		menutabs -= 1;
-	} else {
-		loadContent('work');
-	}
-
-	window.removeEventListener('load', setVisible);
 }
 
-window.addEventListener('load', setVisible);
+window.addEventListener('load', function __pushContentOnLoad() {
+	setVisible('projects');
+	setVisible('talk');
+	setVisible('work');
+	window.removeEventListener('load', __pushContentOnLoad);
+});
 window.addEventListener('load', setPhoto);
 window.addEventListener('load', setTheme);
 menudiv.addEventListener('click', toggleMenu);
