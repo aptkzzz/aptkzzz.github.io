@@ -44,6 +44,7 @@ menu.work = document.getElementById('menu-work');
 var photos = ['./static/images/myphoto1.jpg', './static/images/myphoto2.jpg'];
 var menutabs = 4;
 var menudiv = document.getElementById('menu');
+var bodystyle = document.body.style;
 
 function getWindowSize() {
 	var result = {};
@@ -153,11 +154,11 @@ function loadContent(modificator) {
 function setTheme() {
 	var date = new Date();
 	if (date.getHours() >= 22 || date.getHours() <= 6) {
-		document.body.style.color = '#fff';
-		document.body.style.backgroundColor = '#000';
+		bodystyle.color = '#fff';
+		bodystyle.backgroundColor = '#000';
 	} else {
-		document.body.style.color = '#000';
-		document.body.style.backgroundColor = '#fff';
+		bodystyle.color = '#000';
+		bodystyle.backgroundColor = '#fff';
 	}
 	window.removeEventListener('load', setTheme);
 }
