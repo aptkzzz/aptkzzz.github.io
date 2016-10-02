@@ -1,28 +1,133 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+small {
+	color: #95a5a6;
+}
+
 body {
-	padding-top: 70px;
-	background-image: url("http://80.78.241.238:8192/img/bg/light.png");
+	background-color: #ecf0f1;
 	font-family: Neucha;
 }
 
-.btn {
+#my-photo {
 	width: 100%;
+	border-radius: 50%;
+	box-shadow: 0 0 10px #2c3e50;
+	transition-property: border-radius transform;
+	transition-timing-function: ease-out;
+	transition-duration: 0.3s;
+}
+
+#my-photo:hover {
+	transform: rotate(180deg);
+}
+
+#me {
+	width: 256px;
+	height: 256px;
+	margin: 0 auto;
 	text-align: center;
 }
 
-#projects div, #talk div, #work div {
+#menu {
+	width: 100%;
+	height:50px;
+	background-color: #1abc9c;
+	margin-bottom: 10px;
+	box-shadow: 0 0 10px #2c3e50;
+}
+
+ul#menu-links {
+	height: 50px;
+	width: 1280px;
+	margin: 0 auto;
+}
+
+ul#menu-links li {
+	height: 50px;
+}
+
+ul#menu-links li a {
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+	vertical-align: middle;
+}
+
+div#arseniypetrikor {
+	margin-top: 20px;
+	margin-bottom: 70px;
+}
+
+.menu-link, .menu-link:hover, .menu-link:visited {
+	color: #ecf0f1;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+div.row {
 	text-align: center;
+}
+
+img.icondiv {
+	width: 128px;
+	margin: 15px;
+	display: inline-block;
+	vertical-align: middle;
+	transition-property: width;
+	transition-duration: 0.5s;
+}
+
+img.icondiv:hover {
+	width: 160px;
+}
+
+.gh {
+	width: 100%;
+	height: 25px;
+	border-radius: 5px;
+}
+
+.row {
+	margin: 0 auto;
 }
 
 .center {
 	text-align: center;
 }
 
-.clickable {
-	opacity: 1;
-	transition-property: opacity;
-	transition-duration: 0.4s;
+@media screen and (min-width: 1024px) {
+	ul#menu-links li {
+		display: inline-block;
+		padding-left: 30px;
+		padding-right: 30px;
+		transition-property: background-color;
+		transition-duration: 0.25s;
+	}
+
+	ul#menu-links li:hover {
+		background-color: #16a085;
+	}
+
+	#menu-name {
+		padding-left: 60px;
+		padding-right: 60px;
+	}
 }
 
-.clickable:hover {
-	opacity: 0.8;
+@media screen and (max-width: 1023px) {
+	ul#menu-links li {
+		display: block;
+		height: 50px;
+		padding-left: 15px;
+	}
+
+	#menu {
+		transition-property: height;
+		transition-duration: 0.25s;
+	}
 }
