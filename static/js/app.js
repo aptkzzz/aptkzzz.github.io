@@ -83,6 +83,9 @@ function toggleMenu() {
 			menudiv.style.height = String(menutabs * 50) + 'px';
 		} else {
 			menudiv.style.height = '50px';
+			menu.projects.style.display = 'hidden';
+			menu.talk.display = 'hidden';
+			menu.work.display = 'hidden';
 		}
 	} else {
 		menudiv.removeEventListener('click', toggleMenu);
