@@ -1,7 +1,22 @@
 'use strict';
 
 var colors = [
-	
+	{
+		light: '#1abc9c',
+		dark: '#16a085'
+	},
+	{
+		light: '#2ecc71',
+		dark: '#27ae60'
+	},
+	{
+		light: '#47a1de',
+		dark: '#2980b9'
+	},
+	{
+		light: '#9b59b6',
+		dark: '#8e44ad'
+	}
 ]
 
 var data = {};
@@ -66,6 +81,19 @@ function isFilled(modificator) {
 	}
 }
 
+function setColor(element, mouseover, mouseout) {
+	element.style.backgroundColor = mouseout;
+	element.addEventListener('mouseover', function () {
+		element.style.backgroundColor = mouseover;
+	});
+	element.addEventListener('mouseout', function () {
+		element.style.backgroundColor = mouseout;
+	});
+	element.addEventListener('touchend', function () {
+		element.style.backgroundColor = mouseout;
+	});
+}
+
 function getDeviceData() {
 	var result = {};
 	var windowSize = getWindowSize();
@@ -75,7 +103,7 @@ function getDeviceData() {
 		result.orientation = 'portrait';
 	}
 
-	if (windowSize.width < 1024) {
+	if (windowSize.width < 1280) {
 		result.type = 'mobile';
 	} else {
 		result.type = 'desktop';
@@ -158,20 +186,39 @@ function loadContent(modificator) {
 
 function setTheme() {
 	var date = new Date();
+	var color = colors[Math.round(Math.random() * (colors.length - 1))];
+	var theme = 'light';
+	var bodycolors = {
+		background: '#fff',
+		text: '#000'
+	};
 	if (date.getHours() >= 22 || date.getHours() <= 6) {
-		bodystyle.color = '#fff';
-		bodystyle.backgroundColor = '#000';
+		bodycolors.text = '#fff';
+		bodycolors.background = '#000';
+		theme = 'dark';
+	}
+	bodystyle.color = bodycolors.text;
+	bodystyle.beckgroundColor = bodycolors.background;
+	if (theme == 'light') {
+		setColor(menu.projects, color.dark, color.light);
+		setColor(menu.talk, color.dark, color.light);
+		setColor(menu.work, color.dark, color.light);
+		setColor(document.getElementById('menu-brand'), color.dark, color.light);
+		menudiv.style.backgroundColor = color.light;
 	} else {
-		bodystyle.color = '#000';
-		bodystyle.backgroundColor = '#fff';
+		setColor(menu.projects, color.light, color.dark);
+		setColor(menu.talk, color.light, color.dark);
+		setColor(menu.work, color.light, color.dark);
+		setColor(document.getElementById('menu-brand'), color.light, color.dark);
+		menudiv.style.backgroundColor = color.dark;
 	}
 	window.removeEventListener('load', setTheme);
 }
 
 function setVisible(modificator) {
 	if (!isFilled(modificator)) {
-		divs.projects.style.display = 'none';
-		menu.projects.style.display = 'none';
+		divs[modificator].style.display = 'none';
+		menu[modificator].style.display = 'none';
 		menutabs -= 1;
 	} else {
 		loadContent(modificator);
