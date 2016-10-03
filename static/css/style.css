@@ -12,7 +12,8 @@ body {
 #my-photo {
 	width: 100%;
 	border-radius: 50%;
-	transition-property: transform;
+	transition-property: border-radius transform box-shadow;
+	box-shadow: 0 0 10px black;
 	transition-duration: 0.25s;
 }
 
@@ -84,5 +85,6 @@ small {
 
 	#my-photo:hover {
 		transform: rotate(360deg);
+		box-shadow: 0 0 50px black;
 	}
 }
