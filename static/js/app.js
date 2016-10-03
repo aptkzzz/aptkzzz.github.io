@@ -195,10 +195,9 @@ function setTheme() {
 	if (date.getHours() >= 22 || date.getHours() <= 6) {
 		bodycolors.text = '#fff';
 		bodycolors.background = '#000';
-		theme = 'dark';
 	}
 	bodystyle.color = bodycolors.text;
-	bodystyle.beckgroundColor = bodycolors.background;
+	bodystyle.backgroundColor = bodycolors.background;
 	if (theme == 'light') {
 		setColor(menu.projects, color.dark, color.light);
 		setColor(menu.talk, color.dark, color.light);
