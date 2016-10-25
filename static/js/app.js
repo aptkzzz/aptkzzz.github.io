@@ -17,7 +17,7 @@ var colors = [
 		light: '#9b59b6',
 		dark: '#8e44ad'
 	}
-]
+];
 
 var data = {};
 data.projects = [];
@@ -81,19 +81,6 @@ function isFilled(modificator) {
 	}
 }
 
-function setColor(element, mouseover, mouseout) {
-	element.style.backgroundColor = mouseout;
-	element.addEventListener('mouseover', function () {
-		element.style.backgroundColor = mouseover;
-	});
-	element.addEventListener('mouseout', function () {
-		element.style.backgroundColor = mouseout;
-	});
-	element.addEventListener('touchend', function () {
-		element.style.backgroundColor = mouseout;
-	});
-}
-
 function getDeviceData() {
 	var result = {};
 	var windowSize = getWindowSize();
@@ -111,9 +98,26 @@ function getDeviceData() {
 	return result;
 }
 
+function setColor(element, mouseover, mouseout) {
+	var deviceData = getDeviceData();
+	element.style.backgroundColor = mouseout;
+	if (deviceData.type === 'desktop') {
+		element.addEventListener('mouseover', function () {
+			element.style.backgroundColor = mouseover;
+		});
+		element.addEventListener('mouseout', function () {
+			element.style.backgroundColor = mouseout;
+		});
+		element.addEventListener('touchend', function () {
+			element.style.backgroundColor = mouseout;
+		});
+	}
+}
+
 function setPhoto() {
 	var random = Math.random();
 	var index = Math.round(random);
+
 	document.getElementById('my-photo').src = photos[index];
 	window.removeEventListener('load', setPhoto);
 }
@@ -230,6 +234,8 @@ window.addEventListener('load', function __pushContentOnLoad() {
 	setVisible('work');
 	window.removeEventListener('load', __pushContentOnLoad);
 });
+
 window.addEventListener('load', setPhoto);
 window.addEventListener('load', setTheme);
+
 menudiv.addEventListener('click', toggleMenu);
