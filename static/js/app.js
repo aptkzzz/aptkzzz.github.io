@@ -50,17 +50,22 @@ data.work = [
   }
 ];
 
-var divs = {};
-divs.projects = document.getElementById('projects');
-divs.talk = document.getElementById('talk');
-divs.work = document.getElementById('work');
+var divs = {
+  projects: document.getElementById('projects'),
+  talk: document.getElementById('talk'),
+  work: document.getElementById('work')
+};
 
-var menu = {};
-menu.projects = document.getElementById('menu-projects');
-menu.talk = document.getElementById('menu-talk');
-menu.work = document.getElementById('menu-work');
+var menu = {
+  projects: document.getElementById('menu-projects'),
+  talk: document.getElementById('menu-talk'),
+  work: document.getElementById('menu-work')
+};
 
-var photos = ['./static/images/myphoto1.jpg', './static/images/myphoto2.jpg'];
+var photos = [
+  './static/images/myphoto1.jpg', 
+  './static/images/myphoto2.jpg'
+];
 var menutabs = 4;
 var menudiv = document.getElementById('menu');
 var bodystyle = document.body.style;
