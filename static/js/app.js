@@ -2,20 +2,16 @@
 
 var colors = [
   {
-    light: '#1abc9c',
-    dark: '#16a085'
+    light: '#29B6F6',
+    dark: '#039BE5'
   },
   {
-    light: '#2ecc71',
-    dark: '#27ae60'
+    light: '#43A047',
+    dark: '#2E7D32'
   },
   {
-    light: '#47a1de',
-    dark: '#2980b9'
-  },
-  {
-    light: '#9b59b6',
-    dark: '#8e44ad'
+    light: '#9C27B0',
+    dark: '#7B1FA2'
   }
 ];
 
