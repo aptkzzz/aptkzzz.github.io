@@ -189,6 +189,10 @@ function loadContent(modificator) {
   });
 }
 
+function showGirls() {
+  // there we will show pretty 2d girls on the screen
+}
+
 function setTheme() {
   var date = new Date();
   var color = colors[Math.round(Math.random() * (colors.length - 1))];
