@@ -1,46 +1,79 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <title>arseniypetrikor</title>
-    <!--   Meta tags   -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
-    <!--   Styles   -->
-    <link href='https://fonts.googleapis.com/css?family=Cormorant+Garamond|Neucha&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="./static/css/style.css">
-    <!--   Other   -->
-  </head>
-  <body>
-    <!--   Menu div   -->
-    <div id="menu">
-      <ul id="menu-links">
-        <li id="menu-brand"><a href="#" class="menu-link" id="menu-name">arseniypetrikor</a></li>
-        <li id="menu-projects"><a href="#projects" class="menu-link">My projects</a></li>
-        <li id="menu-talk"><a href="#talk" class="menu-link">Talk with me</a></li>
-        <li id="menu-work"><a href="#work" class="menu-link">Work with me</a></li>
-      </ul>
-    </div>
-    <!--   Div with my photo   -->
-    <div id="arseniypetrikor">
-      <div id="me">
-        <img id="my-photo" />
-        <h2 id="name">arseniypetrikor</h2>
-        <h4><small>Arseniy Beresnev</small></h4>
-      </div>
-    </div>
-    <!--   Div with my projects   -->
-    <div id="projects">
-      <h2>My projects</h2> 
-    </div>
-    <!--   Div with my social media accounts links   -->
-    <div id="talk">
-      <h2>Where you can talk with me</h2>
-    </div>
-    <!--   Div with links to my profiles on freelance sites   -->
-    <div id="work">
-      <h2>Where you can work with me</h2>
-    </div>
-    <!--   Scripts   -->
-    <script src="./static/js/app.js"></script>
-  </body>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>aptk</title>
+        <meta name="description" content="aptk personal website">
+        <link href="./static/css/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="./static/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="./static/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!--parallax 1 -->
+        <section class="bg-1 text-center">
+            <img src="./static/images/me.jpg" class="img img-circle img-thumbnail" />
+            <h1>aptk</h1>
+            <p class="lead">not a simple game developer</p>
+        </section>
+        <!--/parallax 1-->
+        <div class="container">
+            <h1 class="text-center">Contacts</h1>
+            <hr>
+            <div class="row">
+                <div class="col-xs-4 col-md-2 col-md-offset-3">
+                    <img src="./static/images/telegram.jpg" class="img img-responsive img-thumbnail telegram" />
+                </div>
+                <div class="col-xs-4 col-md-2">
+                    <img src="./static/images/twitter.jpg" class="img img-responsive img-thumbnail twitter" />
+                </div>
+                <div class="col-xs-4 col-md-2">
+                    <img src="./static/images/vk.jpg" class="img img-responsive img-thumbnail vk" />
+                </div>
+            </div>
+            <hr>
+            <p class="text-center">You know what's this, so no description</p>
+            <!--/row-->
+        </div>
+        <!--/container-->
+        <div class="divider"></div>
+        <section class="bg-2">
+            <div class="col-sm-10 col-sm-offset-1 text-center">
+                <h1 class="inblur">Game Development</h1>
+            </div>
+        </section>
+        <div class="divider"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-md-4 col-md-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Running Through Russia</h3>
+                        </div>
+                        <div class="panel-body">Simple 2D infinite runner. Jump over bears, drink vodka. Russian memes, you know. <br>P.S. 4096 achievements<br>P.P.S. hardbass soundtrack</div>
+                        <div class="panel-footer text-right"><a href="#" class="btn btn-default rtr">Steam store page</a></div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>FreeFlight</h3>
+                        </div>
+                        <div class="panel-body">Beautiful flying game. Amazing graphics, interesting physics. Relaxing music. A lot of different gamemodes and multiplayer, so you can relax or compete with your friends.</div>
+                        <div class="panel-footer text-right"><a href="#" class="btn btn-default ff">Coming soon</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/container-->
+        <div id="footer">
+            <div class="container">
+                <p class="text-center">Created by aptk himself</p>
+            </div>
+        </div>
+        <script src="./static/js/jquery.js"></script>
+        <script src="./static/js/bootstrap.min.js"></script>
+        <script src="./static/js/app.js"></script>
+    </body>
 </html>

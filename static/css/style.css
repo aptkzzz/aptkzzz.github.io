@@ -1,90 +1,46 @@
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
+.divider {
+    height:50px;
 }
 
-body {
-  font-family: Neucha;
-  text-align: center;
+section {
+    height:500px;
+    padding-top:50px;
+    padding-bottom:50px;
+    overflow:auto;
 }
 
-#my-photo {
-  width: 100%;
-  border-radius: 50%;
-  transition-property: border-radius transform box-shadow;
-  box-shadow: 0 0 10px black;
-  transition-duration: 0.25s;
+.bg-1 {
+	background: url('./../images/bg_blueplane.jpg') no-repeat center center fixed;
+    color:#fff;
+    background-size:cover;
+}
+  
+.bg-2 {
+	background: url('./../images/gamedev.png') no-repeat top center fixed;
+    color:#fff;
+    background-size:cover;
 }
 
-#me {
-  width: 256px;
-  margin: 0 auto;
+.bg-3 {
+	background: url('./../images/bg_blueplane.jpg') no-repeat bottom center fixed;
+    color:#fff;
+    background-size:cover;
 }
 
-#menu {
-  box-shadow: 0 0 10px #2c3e50;
-  overflow: hidden;
+#footer {
+    height: 60px;
+    background-color:#585858;
+    margin-top:50px;
+    padding-top:20px;
+    padding-bottom:20px;
 }
 
-#menu-links {
-  height: 50px;
-  width: 1280px;
-  margin: 0 auto;
+#footer p {
+  color:#efefef;
 }
 
-#menu-links li {
-  display: block;
-  padding: 0 30px;
-  transition-property: background-color;
-  transition-duration: 0.25s;
-}
-
-.menu-link, .menu-link:hover, .menu-link:visited {
-  color: #ecf0f1;
-  font-size: 20px;
-}
-
-.icondiv {
-  margin: 15px;
-  display: inline-block;
-  transition-property: border-radius;
-  transition-duration: 0.25s;
-}
-
-#menu {
-  transition-property: height;
-  transition-duration: 0.25s;
-  text-align: left;
-}
-
-small {
-  color: #95a5a6;
-}
-
-#arseniypetrikor {
-  margin: 20px 0 70px 0;
-}
-
-#menu-links li a {
-  line-height: 50px;
-}
-
-@media screen and (min-width: 1024px) {
-  #menu-links li {
-    display: inline-block;
-  }
-
-  .icondiv:hover {
-    border-radius: 50%;
-  }
-
-  #menu-name {
-    padding: 0 60px;
-  }
-
-  #my-photo:hover {
-    transform: rotate(360deg);
-    box-shadow: 0 0 50px black;
-  }
+.inblur {
+    line-height: 400px;
+    margin: 0;
+    padding: 0;
 }
