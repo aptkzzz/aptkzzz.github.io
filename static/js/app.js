@@ -27,21 +27,3 @@ $('.bg-1,.bg-3').parallax({
 $('.bg-2').parallax({
 	speed :	0.25
 });
-
-window.addEventListener('load', () => {
-    document.querySelector('.vk').addEventListener('click', () => {
-        document.location = "https://vk.com/aptk_off";
-    });
-    document.querySelector('.twitter').addEventListener('click', () => {
-        document.location = "https://twitter.com/aptk_off";
-    });
-    document.querySelector('.telegram').addEventListener('click', () => {
-        document.location = "https://t.me/arseniypetrikor";
-    });
-    document.querySelector('.rtr').addEventListener('click', () => {
-        document.location = "http://store.steampowered.com/app/604490/Running_Through_Russia/";
-    });
-    document.querySelector('.ff').addEventListener('click', () => {
-        alert("I said it's coming soon!");
-    });
-});
