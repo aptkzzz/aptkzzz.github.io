@@ -22,14 +22,17 @@
             <h1 class="text-center">Contacts</h1>
             <hr>
             <div class="row">
-                <div class="col-xs-4 col-md-2 col-md-offset-3">
+                <div class="col-xs-6 col-md-2 col-md-offset-2">
                     <img src="./static/images/telegram.jpg" class="img img-responsive img-thumbnail telegram" />
                 </div>
-                <div class="col-xs-4 col-md-2">
+                <div class="col-xs-6 col-md-2">
                     <img src="./static/images/twitter.jpg" class="img img-responsive img-thumbnail twitter" />
                 </div>
-                <div class="col-xs-4 col-md-2">
+                <div class="col-xs-6 col-md-2">
                     <img src="./static/images/vk.jpg" class="img img-responsive img-thumbnail vk" />
+                </div>
+                <div class="col-xs-6 col-md-2">
+                    <img src="./static/images/soundcloud.png" class="img img-responsive img-thumbnail soundcloud" />
                 </div>
             </div>
             <hr>
@@ -39,7 +42,7 @@
         <!--/container-->
         <div class="divider"></div>
         <section class="bg-2">
-            <div class="col-sm-10 col-sm-offset-1 text-center">
+            <div class="col-xs-10 col-xs-offset-1 text-center">
                 <h1 class="inblur">Game Development</h1>
             </div>
         </section>
@@ -51,8 +54,8 @@
                         <div class="panel-heading">
                             <h3>Running Through Russia</h3>
                         </div>
-                        <div class="panel-body">Simple 2D infinite runner. Jump over bears, drink vodka. Russian memes, you know. <br>P.S. 4096 achievements<br>P.P.S. hardbass soundtrack</div>
-                        <div class="panel-footer text-right"><a href="#" class="btn btn-default rtr">Steam store page</a></div>
+                        <div class="panel-body">Simple 2D infinite runner. Jump over bears, drink vodka. Russian memes, you know. Get 4096 achievements and listen to some hardbass.</div>
+                        <div class="panel-footer text-right"><a href="#" class="btn btn-default runningthroughrussia">Steam store page</a></div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-4">
@@ -61,12 +64,40 @@
                             <h3>FreeFlight</h3>
                         </div>
                         <div class="panel-body">Beautiful flying game. Amazing graphics, interesting physics. Relaxing music. A lot of different gamemodes and multiplayer, so you can relax or compete with your friends.</div>
-                        <div class="panel-footer text-right"><a href="#" class="btn btn-default ff">Coming soon</a></div>
+                        <div class="panel-footer text-right"><a href="#" class="btn btn-default freeflight">Coming soon</a></div>
                     </div>
                 </div>
             </div>
         </div>
         <!--/container-->
+        <section class="bg-3">
+            <div class="col-xs-10 col-xs-offset-1 text-center">
+                <h1 class="inblur">Music</h1>
+            </div>
+        </section>
+        <div class="divider"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-4 col-md-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Heartbeat</h3>
+                        </div>
+                        <div class="panel-body">Some kind of electronic music. The main idea is a heartbeat - you'll never know when it ends.</div>
+                        <div class="panel-footer text-right"><a href="#" class="btn btn-default heartbeat">Releasing soon</a></div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Brown eyes</h3>
+                        </div>
+                        <div class="panel-body">Music made with acoustic guitar and piano. Wrote this for a beautiful girl with brown eyes.</div>
+                        <div class="panel-footer text-right"><a href="#" class="btn btn-default browneyes">Releasing soon</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="footer">
             <div class="container">
                 <p class="text-center">Created by aptk himself</p>
@@ -86,11 +117,20 @@
                 document.querySelector('.telegram').addEventListener('click', () => {
                     document.location = "https://t.me/arseniypetrikor";
                 });
-                document.querySelector('.rtr').addEventListener('click', () => {
+                document.querySelector('.soundcloud').addEventListener('click', () => {
+                    document.location = "https://soundcloud.com/aptk_off";
+                });
+                document.querySelector('.runningthroughrussia').addEventListener('click', () => {
                     document.location = "http://store.steampowered.com/app/604490/Running_Through_Russia/";
                 });
-                document.querySelector('.ff').addEventListener('click', () => {
+                document.querySelector('.freeflight').addEventListener('click', () => {
                     alert("I said it's coming soon!");
+                });
+                document.querySelector('.heartbeat').addEventListener('click', () => {
+                    alert("Releasing it soon on my SoundCloud");
+                });
+                document.querySelector('.browneyes').addEventListener('click', () => {
+                    alert("Releasing it soon on my SoundCloud");
                 });
             });
         </script>

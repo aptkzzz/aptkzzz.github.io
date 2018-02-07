@@ -22,7 +22,7 @@ section {
 }
 
 .bg-3 {
-	background: url('./../images/bg_blueplane.jpg') no-repeat bottom center fixed;
+	background: url('./../images/guitar.jpg') no-repeat bottom center fixed;
     color:#fff;
     background-size:cover;
 }
