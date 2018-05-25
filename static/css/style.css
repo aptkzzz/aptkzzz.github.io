@@ -92,5 +92,6 @@ button.steam {
 }
 
 .col-xs-12.don {
-    margin: auto;
+    padding-top: 50%;
+    margin-top: -50%;
 }
