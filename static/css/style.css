@@ -44,3 +44,37 @@ section {
     margin: 0;
     padding: 0;
 }
+
+.icon {
+    cursor: pointer;
+    transition-property: border-radius;
+    transition-duration: 0.15s;
+}
+
+img.icon:hover {
+    border-radius: 50%;
+}
+
+button.icon {
+    color: rgb(255, 255, 255);
+}
+
+button.telegram {
+    background-color: rgb(20, 164, 219);
+}
+
+button.twitter {
+    background-color: rgb(72, 161, 236);
+}
+
+button.vk {
+    background-color: rgb(93, 123, 163);
+}
+
+button.soundcloud {
+    background-color: rgb(240, 138, 52);
+}
+
+button.steam {
+    background-color: rgb(0, 0, 0);
+}
