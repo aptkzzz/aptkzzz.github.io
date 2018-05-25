@@ -51,6 +51,10 @@ section {
     transition-duration: 0.15s;
 }
 
+donatepage {
+    background: url("./../images/city.html") no-repeat top center fixed;
+}
+
 img.icon:hover {
     border-radius: 50%;
 }
