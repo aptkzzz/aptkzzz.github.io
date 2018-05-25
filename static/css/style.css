@@ -51,7 +51,7 @@ section {
     transition-duration: 0.15s;
 }
 
-donatepage {
+.donatepage {
     background: url("./../images/city.html") no-repeat top center fixed;
 }
 
