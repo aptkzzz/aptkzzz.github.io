@@ -53,6 +53,8 @@ section {
 
 .donatepage {
     background: url("./../images/city.jpg") no-repeat top center fixed;
+    margin: 0;
+    padding: 0;
 }
 
 img.icon:hover {

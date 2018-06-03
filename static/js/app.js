@@ -30,6 +30,6 @@ $('.bg-2').parallax({
 
 function donate_start() {
 	let holder = document.getElementById("holder");
-	holder.style.width = document.body.offsetWidth + "px";
-	holder.style.height = document.body.offsetHeight + "px";
+	holder.style.width = document.documentElement.clientWidth + "px";
+	holder.style.height = document.documentElement.clientHeight + "px";
 }
