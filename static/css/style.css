@@ -95,3 +95,20 @@ button.steam {
     padding-top: 50%;
     margin-top: -50%;
 }
+
+#holder, #center {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+#holder {
+    top: 0;
+    left: 0;
+}
+
+#center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

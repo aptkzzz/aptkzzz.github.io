@@ -27,3 +27,9 @@ $('.bg-1,.bg-3').parallax({
 $('.bg-2').parallax({
 	speed :	0.25
 });
+
+function donate_start() {
+	let holder = document.getElementById("holder");
+	holder.style.width = document.body.offsetWidth + "px";
+	holder.style.height = document.body.offsetHeight + "px";
+}
