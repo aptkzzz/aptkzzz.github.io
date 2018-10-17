@@ -45,7 +45,7 @@
                     <button class="btn btn-default btn-block icon twitter">Twitter</button>
                     <button class="btn btn-default btn-block icon vk">VK</button>
                     <button class="btn btn-default btn-block icon soundcloud">SoundCloud</button>
-                    <button class="btn btn-default btn-block icon steam">Steam</butoon>
+                    <button class="btn btn-default btn-block icon steam">Steam</button>
                 </div>
             </div>
             <hr>
@@ -54,12 +54,15 @@
         </div>
         <!--/container-->
         <div class="divider"></div>
+        <!--parallax 2-->
         <section class="bg-2" id="gamedev">
             <div class="col-xs-10 col-xs-offset-1 text-center">
                 <h1 class="inblur">Games</h1>
             </div>
         </section>
+        <!--/parallax 2-->
         <div class="divider"></div>
+        <!--container-->
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-4">
@@ -87,6 +90,42 @@
                         </div>
                         <div class="panel-body">Second part of legendary Running Through Russia! New locations, characters, bonuses, etc. Let your running continue.</div>
                         <div class="panel-footer text-right"><a href="#gamedev" class="btn btn-default rtr2">Steam</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/container-->
+        <div class="divider"></div>
+        <!--parallax 3-->
+        <section class="bg-3" id="opensource">
+            <div class="col-xs-10 col-xs-offset-1 text-center">
+                <h1 class="inblur">Open Source</h1>
+            </div>
+        </section>
+        <!--/parallax 3-->
+        <div class="divider"></div>
+        <!--container-->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-4 col-md-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>simple-cloud</h3>
+                        </div>
+                        <div class="panel-body">Simple web storage with users and public uploads and downloads</div>
+                        <div class="panel-footer text-right"><a href="#opensource" class="btn btn-default simplecloud">Github</a></div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Junkie Spaceman</h3>
+                        </div>
+                        <div class="panel-body">Simple game made for Open Jam 2018</div>
+                        <div class="panel-footer text-right">
+                            <a href="#opensource" class="btn btn-default junkie-itch">Itch</a>
+                            <a href="#opensource" class="btn btn-default junkie-gh">Github</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -125,6 +164,15 @@
                 });
                 document.querySelector('.rtr2').addEventListener('click', () => {
                     document.location = "http://store.steampowered.com/app/870080/Running_Through_Russia_2/";
+                })
+                document.querySelector('.simplecloud').addEventListener('click', () => {
+                    document.location = "https://github.com/arseniypetrikor/simple-cloud";
+                })
+                document.querySelector('.junkie-itch').addEventListener('click', () => {
+                    document.location = "https://archelunch.itch.io/junkie";
+                })
+                document.querySelector('.junkie-gh').addEventListener('click', () => {
+                    document.location = "https://github.com/arseniypetrikor/Junkie-Spaceman-OpenJam/";
                 })
             });
         </script>
