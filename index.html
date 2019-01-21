@@ -107,7 +107,7 @@
         <!--container-->
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-md-4 col-md-offset-2">
+                <div class="col-xs-12 col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3>simple-cloud</h3>
@@ -125,6 +125,17 @@
                         <div class="panel-footer text-right">
                             <a href="#opensource" class="btn btn-default junkie-itch">Itch</a>
                             <a href="#opensource" class="btn btn-default junkie-gh">Github</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Metricer</h3>
+                        </div>
+                        <div class="panel-body">Tool that is used to automatically check answers on ML competitions.</div>
+                        <div class="panel-footer text-right">
+                            <a href="#opensource" class="btn btn-default metricer-gh">Github</a>
                         </div>
                     </div>
                 </div>
@@ -173,6 +184,9 @@
                 })
                 document.querySelector('.junkie-gh').addEventListener('click', () => {
                     document.location = "https://github.com/arseniypetrikor/Junkie-Spaceman-OpenJam/";
+                })
+                document.querySelector('.metricer-gh').addEventListener('click', () => {
+                    document.location = "https://github.com/arseniypetrikor/metricer/";
                 })
             });
         </script>
