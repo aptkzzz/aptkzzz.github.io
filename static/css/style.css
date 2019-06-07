@@ -14,6 +14,10 @@ section {
     color:#fff;
     background-size:cover;
 }
+
+.bg-1 a {
+    text-decoration: underline;
+}
   
 .bg-2 {
 	background: url('./../images/gamedev.png') no-repeat top center fixed;
@@ -114,4 +118,14 @@ button.steam {
     left: 50%;
     transform: translate(-50%, -50%);
     height: auto;
+}
+
+.img-main {
+    transform: rotate(0);
+    transition-property: transform;
+    transition-duration: 1s;
+}
+
+.img-main:hover {
+    transform: rotate(360deg);
 }
