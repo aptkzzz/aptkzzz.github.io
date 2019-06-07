@@ -56,7 +56,12 @@ section {
 }
 
 .donatepage {
-    background: url("./../images/city.jpg") no-repeat top center fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image:  url("./../images/city.jpg");
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
 }
@@ -89,37 +94,6 @@ button.steam {
     background-color: rgb(0, 0, 0);
 }
 
-.container.don {
-    height: 100%;
-}
-
-.row.don {
-    height: 100%;
-}
-
-.col-xs-12.don {
-    padding-top: 50%;
-    margin-top: -50%;
-}
-
-#holder, #center {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-}
-
-#holder {
-    top: 0;
-    left: 0;
-}
-
-#center {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: auto;
-}
-
 .img-main {
     transform: rotate(0);
     transition-property: transform;
@@ -128,4 +102,16 @@ button.steam {
 
 .img-main:hover {
     transform: rotate(360deg);
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center * {
+    color: #ffffff;
+    border-color: #ffffff;
 }
