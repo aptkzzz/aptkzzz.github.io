@@ -1,2 +1,3 @@
 # arseniypetrikor.github.io
-Personal site with my GitHub projects
+
+Personal website with my GitHub projects
