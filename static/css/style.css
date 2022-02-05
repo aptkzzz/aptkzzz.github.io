@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'AnonymousPro';
+    src: url("../fonts/AnonymousPro-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     background-color: #2D2D2F;
     color: #FCFCFC;
@@ -5,6 +12,7 @@ body {
 
 * {
     border-radius: 0 !important;
+    font-family: "AnonymousPro";
 }
 
 .card-footer {
